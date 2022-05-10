@@ -117,6 +117,12 @@ var app = unpub.App(
 - [pub-dev](https://github.com/dart-lang/pub-dev): Web page styles are mostly imported from https://pub.dev directly.
 - [shields](https://shields.io): Badges generation.
 
+## Docker 
+```sh
+# install docker and cd docker-compose.yml file 
+docker compose up -d 
+```
+
 ## License
 
 MIT
