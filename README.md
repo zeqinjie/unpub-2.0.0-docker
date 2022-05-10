@@ -1,8 +1,8 @@
-# Unpub
+# bytedance Unpub
 
 [![pub](https://img.shields.io/pub/v/unpub.svg)](https://pub.dev/packages/unpub)
 
-Unpub is a self-hosted private Dart Pub server for Enterprise, with a simple web interface to search and view packages information.
+[Unpub](https://github.com/bytedance/unpub) is a self-hosted private Dart Pub server for Enterprise, with a simple web interface to search and view packages information.
 
 ## Screenshots
 
@@ -113,7 +113,7 @@ var app = unpub.App(
 - [pub_server](https://github.com/dart-lang/pub_server): An alpha version of pub server provided by Dart team.
 
 ## Credits
-
+- [Unpub](https://github.com/bytedance/unpub):bytedance Unpub
 - [pub-dev](https://github.com/dart-lang/pub-dev): Web page styles are mostly imported from https://pub.dev directly.
 - [shields](https://shields.io): Badges generation.
 
