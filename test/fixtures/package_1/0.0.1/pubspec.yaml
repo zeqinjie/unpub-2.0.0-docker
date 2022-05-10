@@ -1,0 +1,6 @@
+name: package_1
+description: test
+version: 0.0.1
+homepage: https://example.com
+environment:
+  sdk: ">=2.0.0 <3.0.0"
