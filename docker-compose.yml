@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 services:
   unpub:
     build: ./
@@ -6,8 +6,8 @@ services:
     restart: always
     ports:
       - 4000:4000
-    links:
-      - unpub_mongo:mongo
+    depends_on:
+      - mongo
   mongo: 
     image: mongo:4.2.19
     container_name: unpub_mongo 
