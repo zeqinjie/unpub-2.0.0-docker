@@ -1,25 +1,29 @@
-# bytedance Unpub
 
-[![pub](https://img.shields.io/pub/v/unpub.svg)](https://pub.dev/packages/unpub)
 
-[Unpub](https://github.com/bytedance/unpub) is a self-hosted private Dart Pub server for Enterprise, with a simple web interface to search and view packages information.
+## 通过 Docker 部署 
+为了方便大家移植部署，这边将 `unpub` 打包成 `docker` 镜像环境
 
-## Screenshots
+### 安装镜像
+首先拉取 GitHub 地址  代码，安装 [docker](https://www.docker.com/get-started/) 环境,  然后在项目根目录下执行下面命令即可
 
-![Screenshot](https://raw.githubusercontent.com/bytedance/unpub/master/assets/screenshot.png)
+```sh
+# install docker and cd docker-compose.yml file 
+docker compose up -d 
+```
 
-## Usage
+### 安装运行成功如下
 
+通过 docker ps -a 命令查看运行中容器
+
+
+
+## bytedance Unpub
 ### Command Line
 
 ```sh
 pub global activate unpub
 unpub --database mongodb://localhost:27017/dart_pub # Replace this with production database uri
 ```
-
-Unpub use mongodb as meta information store and file system as package(tarball) store by default.
-
-Dart API is also available for further customization.
 
 ### Dart API
 
@@ -41,87 +45,8 @@ main(List<String> args) async {
 }
 ```
 
-### Options
+### 具体了解地址 [unpub](https://github.com/bytedance/unpub)
 
-| Option | Description | Default |
-| --- | --- | --- |
-| `metaStore` (Required) | Meta information store | - |
-| `packageStore` (Required) | Package(tarball) store | - |
-| `upstream` | Upstream url | https://pub.dev |
-| `googleapisProxy` | Http(s) proxy to call googleapis (to get uploader email) | - |
-| `uploadValidator` | See [Package validator](#package-validator) | - |
-
-### Package validator
-
-Naming conflicts is a common issue for private registry. A reasonable solution is to add prefix to reduce conflict probability.
-
-With `uploadValidator` you could check if uploaded package is valid.
-
-```dart
-var app = unpub.App(
-  // ...
-  uploadValidator: (Map<String, dynamic> pubspec, String uploaderEmail) {
-    // Only allow packages with some specified prefixes to be uploaded
-    var prefix = 'my_awesome_prefix_';
-    var name = pubspec['name'] as String;
-    if (!name.startsWith(prefix)) {
-      throw 'Package name should starts with $prefix';
-    }
-
-    // Also, you can check if uploader email is valid
-    if (!uploaderEmail.endsWith('@your-company.com')) {
-      throw 'Uploader email invalid';
-    }
-  }
-);
-```
-
-### Customize meta and package store
-
-Unpub is designed to be extensible. It is quite easy to customize your own meta store and package store.
-
-```dart
-import 'package:unpub/unpub.dart' as unpub;
-
-class MyAwesomeMetaStore extends unpub.MetaStore {
-  // Implement methods of MetaStore abstract class
-  // ...
-}
-
-class MyAwesomePackageStore extends unpub.PackageStore {
-  // Implement methods of PackageStore abstract class
-  // ...
-}
-
-// Then use it
-var app = unpub.App(
-  metaStore: MyAwesomeMetaStore(),
-  packageStore: MyAwesomePackageStore(),
-)
-```
-
-## Badges
-
-| URL | Badge |
-| --- | --- |
-| `/badge/v/{package_name}` | ![badge example](https://img.shields.io/static/v1?label=unpub&message=0.1.0&color=orange) ![badge example](https://img.shields.io/static/v1?label=unpub&message=1.0.0&color=blue) |
-| `/badge/d/{package_name}` | ![badge example](https://img.shields.io/static/v1?label=downloads&message=123&color=blue) |
-
-## Alternatives
-
-- [pub-dev](https://github.com/dart-lang/pub-dev): Source code of [pub.dev](https://pub.dev), which should be deployed at Google Cloud Platform.
-- [pub_server](https://github.com/dart-lang/pub_server): An alpha version of pub server provided by Dart team.
-
-## Credits
-- [Unpub](https://github.com/bytedance/unpub):bytedance Unpub
-- [pub-dev](https://github.com/dart-lang/pub-dev): Web page styles are mostly imported from https://pub.dev directly.
-- [shields](https://shields.io): Badges generation.
-
-## Docker 
-```sh
-# install docker and cd docker-compose.yml file 
-docker compose up -d 
-```
 
 ## License
 
