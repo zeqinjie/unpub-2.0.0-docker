@@ -13,8 +13,11 @@ docker compose up -d
 
 ### 安装运行成功如下
 
+<img src="https://github.com/zeqinjie/unpub-2.0.0-docker/blob/main/assets/1.png" align="middle"/>
+
 通过 docker ps -a 命令查看运行中容器
 
+<img src="https://github.com/zeqinjie/unpub-2.0.0-docker/blob/main/assets/2.png" align="middle"/>
 
 
 ## bytedance Unpub
