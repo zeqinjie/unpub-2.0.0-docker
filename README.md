@@ -51,6 +51,9 @@ main(List<String> args) async {
 }
 ```
 
+### 相关文章
+[Flutter搭建私有Pub仓库Docker部署](https://zhengzeqin.netlify.app/2022/05/16/flutter%E6%90%AD%E5%BB%BA%E7%A7%81%E6%9C%89pub%E4%BB%93%E5%BA%93docker%E9%83%A8%E7%BD%B2/)
+
 ### 具体了解地址 [unpub](https://github.com/bytedance/unpub)
 
 
