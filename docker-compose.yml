@@ -6,6 +6,8 @@ services:
     restart: always
     ports:
       - 4000:4000
+    volumes: 
+      - ~/.unpub-packages:/app/unpub-packages
     depends_on:
       - mongo
   mongo: 
